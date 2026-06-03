@@ -134,7 +134,7 @@
   /* ÜBER MICH */
   .about{background:var(--surface-warm)}
   .about .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center;padding:74px 28px}
-  .portrait{aspect-ratio:4/5;border-radius:24px;max-width:300px;margin:0 auto;background:var(--aqua-soft);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:var(--shadow);border:5px solid #fff}
+  .portrait{aspect-ratio:4/5;border-radius:24px;max-width:200px;margin:0 auto;background:var(--aqua-soft);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:var(--shadow);border:5px solid #fff}
   .about h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:18px}
   .about p{color:var(--ink-soft);font-size:17.5px;margin-bottom:16px;max-width:38em}
   .contact-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
@@ -193,7 +193,7 @@
   @media(prefers-reduced-motion:reduce){.media .track{transition:none}.c-btn,.play-badge span{transition:none}}
 
   /* LIGHTBOX: Klick zum Vergrößern */
-  .media .slide img{cursor:zoom-in}
+  .media:not(.cz-sobh) .slide img{cursor:zoom-in}
   .zoom-hint{position:absolute;top:12px;left:14px;z-index:3;display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#fff;background:rgba(15,44,51,.5);backdrop-filter:blur(4px);padding:4px 11px;border-radius:100px;opacity:0;transition:opacity .2s ease;pointer-events:none}
   .zoom-hint svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.2}
   .media:hover .zoom-hint,.media:focus-within .zoom-hint{opacity:1}
@@ -268,7 +268,7 @@
         <span class="pnum">03</span>
         <div class="picon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6.5L5.5 18a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 9.5V3"/><path d="M8 15h8"/></svg></div>
         <h3>Wissenschaftliche Strenge als Fundament</h3>
-        <p>Ich bin promovierter Biologe. Genauigkeit ist mein Ausgangspunkt, nicht mein Faktencheck am Schluss. Korrektheit ist eingebaut: vom Plausibilitäts-Gate in den Lernheften bis zur Trennung „gesichert / extrapoliert / spekulativ&#8220; im Mondbasis-Video.</p>
+        <p>Ich bin promovierter Biologe. Genauigkeit ist mein Ausgangspunkt, nicht mein Faktencheck am Schluss. Korrektheit ist eingebaut: vom Plausibilitäts-Gate in den Lernheften bis zur sauberen Trennung von gesichertem Wissen, Extrapolation und Spekulation im Mondbasis-Video.</p>
       </div>
     </div>
   </div>
@@ -361,12 +361,12 @@
       <div class="p-text">
         <div class="p-eyebrow"><span class="pn">04</span> Interaktive Lernhefte</div>
         <h3>Ökosystem-Detektiv</h3>
-        <div class="p-row"><span class="lbl">Was</span><p>Zwei interaktiv ausfüllbare PDF-Lernhefte im Detektiv-Format. Schüler:innen finden in illustrierten Ökosystem-Szenen versteckte „Eindringlinge&#8220; und müssen <strong>begründen, warum</strong> sie nicht dorthingehören (Wald, DE · Ocean, bilingual).</p></div>
+        <div class="p-row"><span class="lbl">Was</span><p>Zwei interaktiv ausfüllbare PDF-Lernhefte im Detektiv-Format. Schüler:innen finden in illustrierten Ökosystem-Szenen versteckte „Eindringlinge&#8220; und müssen <strong>begründen, warum</strong> sie nicht dorthingehören (Wald auf Deutsch, Ocean auf Englisch).</p></div>
         <div class="p-row"><span class="lbl">Warum</span><p>Beleg, dass ich fertige, marktreife Produkte abliefere: der Wald-Detektiv ist released, mit „Best of eduki / Top Quality&#8220;-Siegel. Das Suchen ist nur die Einladung; der Lerngewinn steckt in der Begründung. Plausibilitäts-Check als Pflicht-Gate, sogar auf Klasse 5–6 angewandt.</p></div>
-        <div class="p-row"><span class="lbl">Für wen</span><p>Wald = Biologie Kl. 5–6, DACH · Ocean = bilingual/CLIL.</p></div>
+        <div class="p-row"><span class="lbl">Für wen</span><p>Wald = Biologie Kl. 5–6, DACH · Ocean = Englisch, für CLIL/bilingualen Unterricht.</p></div>
         <div class="p-links">
-          <a href="https://eduki.com/de/material/2030156/oekosystem-wald-10-detektiv-logikraetsel-zur-angepasstheit-biologie-klasse-5-6" target="_blank" rel="noopener" class="link-coral">Wald-Detektiv <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="https://eduki.com/de/material/1831226/ocean-detective-marine-biology-logic-puzzles-biologie-auf-englisch-clil" target="_blank" rel="noopener" class="link-coral">Ocean Detective (gratis) <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://eduki.com/de/material/2030156/oekosystem-wald-10-detektiv-logikraetsel-zur-angepasstheit-biologie-klasse-5-6" target="_blank" rel="noopener" class="link-coral">Wald-Detektiv ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://eduki.com/de/material/1831226/ocean-detective-marine-biology-logic-puzzles-biologie-auf-englisch-clil" target="_blank" rel="noopener" class="link-coral">Ocean Detective ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
       <div class="media cz-detektiv" tabindex="0" role="group" aria-roledescription="Bildkarussell" aria-label="Ökosystem-Detektiv, Einblicke in die Lernhefte">
@@ -423,8 +423,9 @@
     <div class="reveal">
       <span class="eyebrow">Über mich</span>
       <h2>Promovierter Biologe, der Lernwelten baut.</h2>
-      <p>Ich komme aus der molekularen Biologie, und was mich seit jeher fasziniert, sind geschlossene Systeme und fremde Welten, vom Riff über den Organismus bis zur Mondbasis. Genau dieser rote Faden trägt alles, was ich gestalte: komplexe lebende Systeme so erzählen, dass man sie nicht nur versteht, sondern in ihnen handelt.</p>
-      <p>Wenn du etwas bauen willst, in dem deine Lernenden entscheiden statt auswendig lernen, dann lass uns reden.</p>
+      <p>Ich komme aus der molekularen Biologie, und was mich an ihr immer am meisten gepackt hat, ist nicht das Einzelteil, sondern das Zusammenspiel: wie aus Molekülen Zellen werden, aus Zellen Organismen, aus Organismen ganze Ökosysteme. Lebende Systeme, in denen ein Eingriff an einer Stelle überall nachhallt. Diese Faszination ist der rote Faden durch alles, was ich gestalte, vom Korallenriff bis zur Mondbasis.</p>
+      <p>Erklären gehört dazu, das mache ich klar und sauber. Aber wo es ums Abwägen geht, höre ich da nicht auf, sondern baue einen Ort zum Anwenden: ein Riff, dessen Schutz man unter einer Hitzewelle selbst steuert, eine Verhandlung, die man gegen einen widerstrebenden Experten führt. Man entscheidet, sieht die Folgen, und genau dieses Abwägen lässt sich nicht auswendig lernen.</p>
+      <p>Wenn du willst, dass Lernende ein Thema erleben statt es abzuarbeiten, dann lass uns reden.</p>
       <div class="contact-row">
         <a href="mailto:tobi.schneider44@gmail.com" class="btn">Schreib mir
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -502,10 +503,10 @@
       document.documentElement.style.overflow='';
       setTimeout(()=>{ if(!lb.classList.contains('open')) lbImg.removeAttribute('src'); },300);
     }
-    document.querySelectorAll('.media .slide img').forEach(img=>{
+    document.querySelectorAll('.media:not(.cz-sobh) .slide img').forEach(img=>{
       img.addEventListener('click',()=>open(img.currentSrc||img.src, img.alt));
     });
-    document.querySelectorAll('.media .track').forEach(track=>{
+    document.querySelectorAll('.media:not(.cz-sobh) .track').forEach(track=>{
       const media=track.closest('.media');
       if(media.querySelector('.zoom-hint')) return;
       const hint=document.createElement('span');
