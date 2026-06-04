@@ -57,8 +57,12 @@
   .nav-links{display:flex;align-items:center;gap:30px;font-size:15.5px;font-weight:500;color:var(--ink-soft)}
   .nav-links a:hover{color:var(--teal)}
   .lang{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;font-size:13px;font-weight:600}
-  .lang span{padding:6px 13px;color:var(--ink-soft);cursor:pointer}
-  .lang span.on{background:var(--teal);color:#fff}
+  .lang button{padding:6px 13px;color:var(--ink-soft);cursor:pointer;background:none;border:none;font:inherit;line-height:1}
+  .lang button.on{background:var(--teal);color:#fff}
+
+  /* SPRACHE: nur die aktive Sprache zeigen (DE = Standard) */
+  html[lang="de"] .en{display:none!important}
+  html[lang="en"] .de{display:none!important}
   @media(max-width:760px){.nav-links a:not(.lang-wrap){display:none}}
 
   /* HERO */
@@ -135,8 +139,8 @@
 
   /* ÜBER MICH */
   .about{background:var(--surface-warm)}
-  .about .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center;padding:74px 28px}
-  .portrait{aspect-ratio:4/5;border-radius:24px;max-width:200px;margin:0 auto;background:var(--aqua-soft);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:var(--shadow);border:5px solid #fff}
+  .about .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:start;padding:74px 28px}
+  .portrait{aspect-ratio:4/5;border-radius:24px;max-width:236px;margin:6px auto 0;background:var(--aqua-soft);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:var(--shadow);border:5px solid #fff}
   .about h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:18px}
   .about p{color:var(--ink-soft);font-size:17.5px;margin-bottom:16px;max-width:38em}
   .contact-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
@@ -215,10 +219,10 @@
   <div class="wrap">
     <div class="brand"><span class="dot"></span> Tobias Schneider</div>
     <div class="nav-links">
-      <a href="#saeulen">Ansatz</a>
-      <a href="#stuecke">Arbeiten</a>
-      <a href="#kontakt">Kontakt</a>
-      <span class="lang lang-wrap"><span class="on">DE</span><span>EN</span></span>
+      <a href="#saeulen"><span class="de">Ansatz</span><span class="en">Approach</span></a>
+      <a href="#stuecke"><span class="de">Arbeiten</span><span class="en">Work</span></a>
+      <a href="#kontakt"><span class="de">Kontakt</span><span class="en">Contact</span></a>
+      <span class="lang lang-wrap"><button type="button" data-l="de" class="on">DE</button><button type="button" data-l="en">EN</button></span>
     </div>
   </div>
 </nav>
@@ -228,13 +232,15 @@
   <div class="blob b2"></div>
   <div class="wrap">
     <div class="hero-text">
-      <h1>Ich baue Lernwelten, in denen man komplexe lebende Systeme nicht auswendig lernt, sondern <em>erlebt</em>, durch Entscheidungen mit echten Konsequenzen.</h1>
-      <p class="sub">Promovierter Biologe &amp; Learning Experience Designer. Vom Korallenriff in der Krise bis zur Mondbasis als Organismus. Wissenschaftliche Genauigkeit ist mein Ausgangspunkt, nicht mein Faktencheck am Schluss. Und ich baue end-to-end: Konzept, Didaktik, Drehbuch, Bild und Code.</p>
+      <h1 class="de">Ich baue Lernwelten, in denen man komplexe lebende Systeme nicht auswendig lernt, sondern <em>erlebt</em>, durch Entscheidungen mit echten Konsequenzen.</h1>
+      <h1 class="en">I build learning worlds where you don't memorize complex living systems, you <em>experience</em> them, through decisions with real consequences.</h1>
+      <p class="sub de">Promovierter Biologe &amp; Learning Experience Designer. Vom Korallenriff in der Krise bis zur Mondbasis als Organismus. Wissenschaftliche Genauigkeit ist mein Ausgangspunkt, nicht mein Faktencheck am Schluss. Und ich baue end-to-end: Konzept, Didaktik, Drehbuch, Bild und Code.</p>
+      <p class="sub en">Biologist (PhD) &amp; Learning Experience Designer. From a coral reef in crisis to a moon base as a living organism. Scientific accuracy is my starting point, not a fact-check at the end. And I build end to end: concept, instructional design, script, visuals, and code.</p>
       <div class="hero-cta">
-        <a href="#kontakt" class="btn">Lass uns etwas bauen
+        <a href="#kontakt" class="btn"><span class="de">Lass uns etwas bauen</span><span class="en">Let's build something</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#stuecke" class="btn btn-ghost">Arbeiten ansehen</a>
+        <a href="#stuecke" class="btn btn-ghost"><span class="de">Arbeiten ansehen</span><span class="en">See the work</span></a>
       </div>
     </div>
   </div>
@@ -250,27 +256,35 @@
 <section class="sect" id="saeulen" style="background:#fff;padding-top:30px">
   <div class="wrap">
     <div class="sect-head reveal">
-      <span class="eyebrow">Mein Ansatz</span>
-      <h2>Drei Überzeugungen tragen jedes Stück.</h2>
+      <span class="eyebrow de">Mein Ansatz</span>
+      <span class="eyebrow en">My approach</span>
+      <h2 class="de">Drei Überzeugungen tragen jedes Stück.</h2>
+      <h2 class="en">Three convictions run through every piece.</h2>
     </div>
     <div class="pillars">
       <div class="pillar reveal">
         <span class="pnum">01</span>
         <div class="picon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.5 10.5 16M17 7.5 13.5 16M6.5 6h11"/></svg></div>
-        <h3>Systemdenken</h3>
-        <p>Ich erzähle alles als zusammenspielende Teile, in denen das Versagen eines Teils das Ganze gefährdet: Riff, Mondbasis-Organe, Ökosystem-Netz. Mein Biologen-Hirn ist ein Systemhirn.</p>
+        <h3 class="de">Systemdenken</h3>
+        <h3 class="en">Systems thinking</h3>
+        <p class="de">Ich erzähle alles als zusammenspielende Teile, in denen das Versagen eines Teils das Ganze gefährdet: Riff, Mondbasis-Organe, Ökosystem-Netz. Mein Biologen-Hirn ist ein Systemhirn.</p>
+        <p class="en">I tell everything as interacting parts, where the failure of one part endangers the whole: the reef, the organs of a moon base, the web of an ecosystem. My biologist's brain is a systems brain.</p>
       </div>
       <div class="pillar reveal">
         <span class="pnum">02</span>
         <div class="picon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
-        <h3>Übungsräume statt Vermittlung</h3>
-        <p>Ich baue Orte zum Anwenden, nicht zum Auswendiglernen: einen Flugsimulator fürs Riff-Management, eine verzweigte Verhandlung, einen Detektivfall, in dem man aufspürt, was nicht in ein Ökosystem gehört. Man wendet Wissen an, statt es nur abzurufen, und übt so Urteilsvermögen.</p>
+        <h3 class="de">Vom Vermitteln zum Anwenden</h3>
+        <h3 class="en">From teaching to doing</h3>
+        <p class="de">Ich baue Orte zum Anwenden, nicht zum Auswendiglernen: einen Flugsimulator fürs Riff-Management, eine verzweigte Verhandlung, einen Detektivfall, in dem man aufspürt, was nicht in ein Ökosystem gehört. Man wendet Wissen an, statt es nur abzurufen, und übt so Urteilsvermögen.</p>
+        <p class="en">I build places to apply knowledge, not just to memorize it: a flight simulator for reef management, a branching negotiation, a detective case where you spot what doesn't belong in an ecosystem. You apply knowledge instead of merely recalling it, and that is how you train judgment.</p>
       </div>
       <div class="pillar reveal">
         <span class="pnum">03</span>
         <div class="picon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6.5L5.5 18a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 9.5V3"/><path d="M8 15h8"/></svg></div>
-        <h3>Wissenschaftliche Strenge als Fundament</h3>
-        <p>Ich bin promovierter Biologe. Genauigkeit ist mein Ausgangspunkt, nicht mein Faktencheck am Schluss. Korrektheit ist eingebaut: von der fachlichen Prüfung jeder Aussage bis zur sauberen Trennung von gesichertem Wissen, Extrapolation und Spekulation im Mondbasis-Video.</p>
+        <h3 class="de">Wissenschaftliche Strenge als Fundament</h3>
+        <h3 class="en">Scientific rigor as the foundation</h3>
+        <p class="de">Ich bin promovierter Biologe. Genauigkeit ist mein Ausgangspunkt, nicht mein Faktencheck am Schluss. Korrektheit ist eingebaut: von der fachlichen Prüfung jeder Aussage bis zur sauberen Trennung von gesichertem Wissen, Extrapolation und Spekulation im Mondbasis-Video.</p>
+        <p class="en">I am a biologist (PhD). Accuracy is my starting point, not a fact-check at the end. Correctness is built in: from checking every claim against the science to the clean separation of established knowledge, extrapolation, and speculation in the moon base video.</p>
       </div>
     </div>
   </div>
@@ -278,26 +292,30 @@
 
 <section class="band">
   <div class="wrap">
-    <span class="eyebrow">Der KI-Vorteil</span>
-    <blockquote>Ich nutze KI als kontrollierte Produktionspipeline, gezielt gesteuert, nicht als Spielzeug. Der Doppelvorteil: <strong>Tempo durch Orchestrierung, Vertrauen durch wissenschaftliche Kontrolle.</strong></blockquote>
+    <span class="eyebrow de">Der KI-Vorteil</span>
+    <span class="eyebrow en">The AI advantage</span>
+    <blockquote class="de">Ich nutze KI als kontrollierte Produktionspipeline, gezielt gesteuert, nicht als Spielzeug. Der Doppelvorteil: <strong>Tempo durch Orchestrierung, Vertrauen durch wissenschaftliche Kontrolle.</strong></blockquote>
+    <blockquote class="en">I use AI as a controlled production pipeline, precisely directed, not as a toy. The double advantage: <strong>speed through orchestration, trust through scientific control.</strong></blockquote>
   </div>
 </section>
 
 <section class="sect" id="stuecke">
   <div class="wrap">
     <div class="sect-head reveal">
-      <span class="eyebrow">Ausgewählte Arbeiten</span>
-      <h2>Fünf Stücke, ein roter Faden: lebende Systeme begreifbar machen.</h2>
+      <span class="eyebrow de">Ausgewählte Arbeiten</span>
+      <span class="eyebrow en">Selected work</span>
+      <h2 class="de">Fünf Stücke, ein roter Faden: lebende Systeme begreifbar machen.</h2>
+      <h2 class="en">Five pieces, one common thread: making living systems tangible.</h2>
     </div>
 
     <div class="piece reveal">
       <div class="p-text">
-        <div class="p-eyebrow"><span class="pn">01</span> Interaktiver eLearning-Kurs</div>
+        <div class="p-eyebrow"><span class="pn">01</span> <span class="de">Interaktiver eLearning-Kurs</span><span class="en">Interactive eLearning course</span></div>
         <h3>Coral Reefs on the Brink</h3>
-        <div class="p-row"><span class="lbl">Was</span><p>Szenariobasierter eLearning-Kurs in vier Modulen. Man versteht ein Korallenriff als System, lernt seine Warnsignale zu lesen und trifft als „reef manager&#8220; unter einer Code-Red-Hitzewelle echte Triage-Entscheidungen. <strong>Flugsimulator statt Lehrbuch.</strong></p></div>
-        <div class="p-row"><span class="lbl">Warum</span><p>Mein vollständigster Beweis: ein kompletter 4-Modul-Kurs, allein konzipiert und gebaut, von der Riff-Biologie über das Lesen der Hitzestress-Diagnostik bis zur Entscheidung unter Druck. Dramatischer Höhepunkt ist das „Decision Lab&#8220;, eine variablengesteuerte Simulation mit eigenen Code-Blöcken: Urteilsvermögen unter Unsicherheit üben statt Fakten abrufen. Der Bogen führt am Ende ins Feld, bis zur Berufsorientierung, auch für Hochschulen zur Nachwuchsgewinnung.</p></div>
-        <div class="p-row"><span class="lbl">Für wen</span><p>Angehende Meereswissenschaftler:innen, Oberstufe bis 1. Studienjahr · Englisch.</p></div>
-        <div class="p-links"><a href="https://share.eu.articulate.com/8k5jLmJxQe_BkXPFtjGIC" target="_blank" rel="noopener" class="link-coral">Kurs ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="assets/CoralDesignDossier.pdf" target="_blank" rel="noopener" class="link-muted">Mehr erfahren <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="p-row"><span class="lbl"><span class="de">Was</span><span class="en">What</span></span><p class="de">Szenariobasierter eLearning-Kurs in vier Modulen. Man versteht ein Korallenriff als System, lernt seine Warnsignale zu lesen und trifft als „reef manager&#8220; unter einer Code-Red-Hitzewelle echte Triage-Entscheidungen. <strong>Flugsimulator statt Lehrbuch.</strong></p><p class="en">A scenario-based eLearning course in four modules. You come to understand a coral reef as a system, learn to read its warning signs, and make real triage decisions as a “reef manager” during a Code Red heat wave. <strong>A flight simulator, not a textbook.</strong></p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Warum</span><span class="en">Why</span></span><p class="de">Mein vollständigster Beweis: ein kompletter 4-Modul-Kurs, allein konzipiert und gebaut, von der Riff-Biologie über das Lesen der Hitzestress-Diagnostik bis zur Entscheidung unter Druck. Dramatischer Höhepunkt ist das „Decision Lab&#8220;, eine variablengesteuerte Simulation mit eigenen Code-Blöcken: Urteilsvermögen unter Unsicherheit üben statt Fakten abrufen. Der Bogen führt am Ende ins Feld, bis zur Berufsorientierung, auch für Hochschulen zur Nachwuchsgewinnung.</p><p class="en">My most complete proof of work: a full four-module course, conceived and built single-handedly, from reef biology through reading heat-stress diagnostics to deciding under pressure. Its dramatic high point is the “Decision Lab”, a variable-driven simulation with custom code blocks: training judgment under uncertainty instead of recalling facts. The arc leads into the field at the end, all the way to career orientation, useful for universities recruiting the next generation too.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Für wen</span><span class="en">Who for</span></span><p class="de">Angehende Meereswissenschaftler:innen, Oberstufe bis 1. Studienjahr · Englisch.</p><p class="en">Aspiring marine scientists, upper secondary to first-year university · English.</p></div>
+        <div class="p-links"><a href="https://share.eu.articulate.com/8k5jLmJxQe_BkXPFtjGIC" target="_blank" rel="noopener" class="link-coral"><span class="de">Kurs ansehen</span><span class="en">View the course</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="assets/CoralDesignDossier.pdf" target="_blank" rel="noopener" class="link-muted"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
       <div class="media cz-coral" tabindex="0" role="group" aria-roledescription="Bildkarussell" aria-label="Coral Reefs on the Brink, Einblicke in den Kurs">
         <div class="track">
@@ -321,12 +339,12 @@
 
     <div class="piece flip reveal">
       <div class="p-text">
-        <div class="p-eyebrow"><span class="pn">02</span> Szenario-Microlearning</div>
+        <div class="p-eyebrow"><span class="pn">02</span> <span class="de">Szenario-Microlearning</span><span class="en">Scenario microlearning</span></div>
         <h3>SME Negotiation &amp; Microlearning</h3>
-        <div class="p-row"><span class="lbl">Was</span><p>Microlearning, in dem man als L&amp;D-Berater einen widerstrebenden Experten überzeugt, der ein Verhaltensproblem mit 140 Folien Theorie „erschlagen&#8220; will. Aus der Verhandlung entsteht ein Praxisplan; zwei kleine Prototypen führen beispielhaft vor, wie man ihn in echtes Action Mapping übersetzt.</p></div>
-        <div class="p-row"><span class="lbl">Warum</span><p>Mein Strategie- und Consulting-Beleg. Es zeigt, dass ich als strategischer Learning Consultant denke, nicht als bloßer Umsetzer: Ich erkenne ein Verhaltens- statt Wissensproblem, führe einen schwierigen Experten als Partner statt ihn zu überstimmen, und baue das Ganze als <strong>echte Verhandlung statt als verkleidetes Quiz.</strong> Drei plausible Optionen pro Stufe, bewusst nicht als richtig/falsch markiert; das Feedback erklärt jeweils das Prinzip dahinter.</p></div>
-        <div class="p-row"><span class="lbl">Für wen</span><p>L&amp;D, EdTech, Hochschule, Biotech/Healthcare, kein Pharma-Vorwissen nötig · Deutsch.</p></div>
-        <div class="p-links"><a href="https://share.eu.articulate.com/OX7qa4GfrjAGJ84xw7_Qs" target="_blank" rel="noopener" class="link-coral">Kurs ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="assets/SMEDesignDossier.pdf" target="_blank" rel="noopener" class="link-muted">Mehr erfahren <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="p-row"><span class="lbl"><span class="de">Was</span><span class="en">What</span></span><p class="de">Microlearning, in dem man als L&amp;D-Berater einen widerstrebenden Experten überzeugt, der ein Verhaltensproblem mit 140 Folien Theorie „erschlagen&#8220; will. Aus der Verhandlung entsteht ein Praxisplan; zwei kleine Prototypen führen beispielhaft vor, wie man ihn in echtes Action Mapping übersetzt.</p><p class="en">A microlearning piece where, as an L&amp;D consultant, you have to win over a reluctant subject-matter expert who wants to “bury” a behavior problem under 140 slides of theory. The negotiation produces a practical plan; two small prototypes show how to translate it into real action mapping.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Warum</span><span class="en">Why</span></span><p class="de">Mein Strategie- und Consulting-Beleg. Es zeigt, dass ich als strategischer Learning Consultant denke, nicht als bloßer Umsetzer: Ich erkenne ein Verhaltens- statt Wissensproblem, führe einen schwierigen Experten als Partner statt ihn zu überstimmen, und baue das Ganze als <strong>echte Verhandlung statt als verkleidetes Quiz.</strong> Drei plausible Optionen pro Stufe, bewusst nicht als richtig/falsch markiert; das Feedback erklärt jeweils das Prinzip dahinter.</p><p class="en">My strategy and consulting credential. It shows that I think like a strategic learning consultant, not a mere implementer: I recognize a behavior problem rather than a knowledge problem, guide a difficult expert as a partner instead of overruling him, and build the whole thing as <strong>a real negotiation, not a quiz in disguise.</strong> Three plausible options at each stage, deliberately not marked right or wrong; the feedback explains the principle behind each one.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Für wen</span><span class="en">Who for</span></span><p class="de">L&amp;D, EdTech, Hochschule, Biotech/Healthcare, kein Pharma-Vorwissen nötig · Deutsch.</p><p class="en">L&amp;D, EdTech, higher education, biotech/healthcare, no pharma background needed · German.</p></div>
+        <div class="p-links"><a href="https://share.eu.articulate.com/OX7qa4GfrjAGJ84xw7_Qs" target="_blank" rel="noopener" class="link-coral"><span class="de">Kurs ansehen</span><span class="en">View the course</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="assets/SMEDesignDossier.pdf" target="_blank" rel="noopener" class="link-muted"><span class="de">Mehr erfahren</span><span class="en">Learn more</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
       <div class="media cz-sme" tabindex="0" role="group" aria-roledescription="Bildkarussell" aria-label="SME Negotiation, Einblicke in das Microlearning">
         <div class="track">
@@ -346,12 +364,12 @@
 
     <div class="piece reveal">
       <div class="p-text">
-        <div class="p-eyebrow"><span class="pn">03</span> Science-Erklärvideo</div>
+        <div class="p-eyebrow"><span class="pn">03</span> <span class="de">Science-Erklärvideo</span><span class="en">Science explainer video</span></div>
         <h3>Your Body, But on the Moon</h3>
-        <div class="p-row"><span class="lbl">Was</span><p>Long-form Science-Erklärvideo. Die Frage ist nicht „Wie bauen wir eine Mondbasis?&#8220;, sondern <strong>„Wie überlebt sie?&#8220;</strong> Erzählt als lebender Organismus: Energie ihr Herzschlag, Luft ihre Lunge, Wasser ihre Blutbahn, Strahlenschutz ihre Haut.</p></div>
-        <div class="p-row"><span class="lbl">Warum</span><p>Das Stück, in dem das Systemdenken am sichtbarsten wird. Eine einzige Metapher trägt über zehn Minuten die ganze Erklärarchitektur, fundiert auf aktueller Wissenschaft und realen Pilotprojekten, mit sauber gekennzeichneter Spekulation.</p></div>
-        <div class="p-row"><span class="lbl">Für wen</span><p>Wissenschaftsaffines Publikum · Englisch.</p></div>
-        <div class="p-links"><a href="https://youtu.be/5BdJQgc4SOA" target="_blank" rel="noopener" class="link-coral">Auf YouTube ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="p-row"><span class="lbl"><span class="de">Was</span><span class="en">What</span></span><p class="de">Long-form Science-Erklärvideo. Die Frage ist nicht „Wie bauen wir eine Mondbasis?&#8220;, sondern <strong>„Wie überlebt sie?&#8220;</strong> Erzählt als lebender Organismus: Energie ihr Herzschlag, Luft ihre Lunge, Wasser ihre Blutbahn, Strahlenschutz ihre Haut.</p><p class="en">A long-form science explainer. The question isn't “How do we build a moon base?” but <strong>“How does it stay alive?”</strong> Told as a living organism: energy is its heartbeat, air its lungs, water its bloodstream, radiation shielding its skin.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Warum</span><span class="en">Why</span></span><p class="de">Das Stück, in dem das Systemdenken am sichtbarsten wird. Eine einzige Metapher trägt über zehn Minuten die ganze Erklärarchitektur, fundiert auf aktueller Wissenschaft und realen Pilotprojekten, mit sauber gekennzeichneter Spekulation.</p><p class="en">The piece where systems thinking is most visible. A single metaphor carries the entire explanatory architecture across ten minutes, grounded in current science and real pilot projects, with speculation clearly marked as such.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Für wen</span><span class="en">Who for</span></span><p class="de">Wissenschaftsaffines Publikum · Englisch.</p><p class="en">A science-minded audience · English.</p></div>
+        <div class="p-links"><a href="https://youtu.be/5BdJQgc4SOA" target="_blank" rel="noopener" class="link-coral"><span class="de">Auf YouTube ansehen</span><span class="en">Watch on YouTube</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
       <a class="media cz-moon" href="https://youtu.be/5BdJQgc4SOA" target="_blank" rel="noopener" aria-label="Video auf YouTube ansehen: Your Body, But on the Moon"><!-- TODO LINK: YouTube-Video Moon -->
         <img src="assets/moon.jpg" alt="YouTube-Thumbnail: System Alive, die Mondbasis als lebender Organismus" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover">
@@ -361,14 +379,15 @@
 
     <div class="piece flip reveal">
       <div class="p-text">
-        <div class="p-eyebrow"><span class="pn">04</span> Interaktive Lernhefte</div>
-        <h3>Ökosystem-Detektiv</h3>
-        <div class="p-row"><span class="lbl">Was</span><p>Zwei interaktiv ausfüllbare PDF-Lernhefte im Detektiv-Format. Schüler:innen spüren in illustrierten Ökosystem-Szenen versteckte „Eindringlinge&#8220; auf, Tiere und Pflanzen, die nicht dorthin gehören; auf der Auflösungsseite erfährt man dann, warum, mit Anekdoten und Fachwissen im Kontext (Wald auf Deutsch, Ocean auf Englisch).</p></div>
-        <div class="p-row"><span class="lbl">Warum</span><p>Mein Beleg, dass ich fertige, marktreife Produkte abliefere: Beide Hefte sind auf Eduki veröffentlicht, der Wald-Detektiv trägt zusätzlich das „Best of eduki / Top Quality&#8220;-Siegel. Das Suchen ist nur die Einladung; der eigentliche Lerngewinn steckt im Warum, das die Auflösung liefert, im Wald mit der Pointe, dass ein Neobiot nicht stört, weil er hier nicht leben kann, sondern weil er zu gut lebt und Heimische verdrängt. Die Erklärungen sind fachlich geprüft und auf die jeweilige Stufe zugeschnitten.</p></div>
-        <div class="p-row"><span class="lbl">Für wen</span><p>Wald = Biologie Kl. 5–6, DACH · Ocean = Englisch, für CLIL/bilingualen Unterricht.</p></div>
+        <div class="p-eyebrow"><span class="pn">04</span> <span class="de">Interaktive Lernhefte</span><span class="en">Interactive learning booklets</span></div>
+        <h3 class="de">Ökosystem-Detektiv</h3>
+        <h3 class="en">Ecosystem Detective</h3>
+        <div class="p-row"><span class="lbl"><span class="de">Was</span><span class="en">What</span></span><p class="de">Zwei interaktiv ausfüllbare PDF-Lernhefte im Detektiv-Format. Schüler:innen spüren in illustrierten Ökosystem-Szenen versteckte „Eindringlinge&#8220; auf, Tiere und Pflanzen, die nicht dorthin gehören; auf der Auflösungsseite erfährt man dann, warum, mit Anekdoten und Fachwissen im Kontext (Wald auf Deutsch, Ocean auf Englisch).</p><p class="en">Two interactive fill-in PDF booklets in a detective format. In illustrated ecosystem scenes, students track down hidden “intruders”, animals and plants that don't belong there; the solution page then reveals why, with anecdotes and subject knowledge in context (Forest in German, Ocean in English).</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Warum</span><span class="en">Why</span></span><p class="de">Mein Beleg, dass ich fertige, marktreife Produkte abliefere: Beide Hefte sind auf Eduki veröffentlicht, der Wald-Detektiv trägt zusätzlich das „Best of eduki / Top Quality&#8220;-Siegel. Das Suchen ist nur die Einladung; der eigentliche Lerngewinn steckt im Warum, das die Auflösung liefert, im Wald mit der Pointe, dass ein Neobiot nicht stört, weil er hier nicht leben kann, sondern weil er zu gut lebt und Heimische verdrängt. Die Erklärungen sind fachlich geprüft und auf die jeweilige Stufe zugeschnitten.</p><p class="en">My proof that I deliver finished, market-ready products: both booklets are published on Eduki, and the Forest Detective also carries the “Best of eduki / Top Quality” badge. The searching is only the invitation; the real learning sits in the why that the solution delivers, in the Forest with the twist that an invasive species is a problem not because it can't survive here, but because it thrives too well and crowds out the natives. The explanations are reviewed for accuracy and tailored to each level.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Für wen</span><span class="en">Who for</span></span><p class="de">Wald = Biologie Kl. 5–6, DACH · Ocean = Englisch, für CLIL/bilingualen Unterricht.</p><p class="en">Forest = biology, grades 5–6, German-speaking countries · Ocean = English, for CLIL/bilingual teaching.</p></div>
         <div class="p-links">
-          <a href="https://eduki.com/de/material/2030156/oekosystem-wald-10-detektiv-logikraetsel-zur-angepasstheit-biologie-klasse-5-6" target="_blank" rel="noopener" class="link-coral">Wald-Detektiv ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="https://eduki.com/de/material/1831226/ocean-detective-marine-biology-logic-puzzles-biologie-auf-englisch-clil" target="_blank" rel="noopener" class="link-coral">Ocean Detective ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://eduki.com/de/material/2030156/oekosystem-wald-10-detektiv-logikraetsel-zur-angepasstheit-biologie-klasse-5-6" target="_blank" rel="noopener" class="link-coral"><span class="de">Wald-Detektiv ansehen</span><span class="en">View the Forest Detective</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://eduki.com/de/material/1831226/ocean-detective-marine-biology-logic-puzzles-biologie-auf-englisch-clil" target="_blank" rel="noopener" class="link-coral"><span class="de">Ocean Detective ansehen</span><span class="en">View the Ocean Detective</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
       <div class="media cz-detektiv" tabindex="0" role="group" aria-roledescription="Bildkarussell" aria-label="Ökosystem-Detektiv, Einblicke in die Lernhefte">
@@ -391,12 +410,12 @@
 
     <div class="piece reveal">
       <div class="p-text">
-        <div class="p-eyebrow"><span class="pn">05</span> YouTube-Kanal</div>
+        <div class="p-eyebrow"><span class="pn">05</span> <span class="de">YouTube-Kanal</span><span class="en">YouTube channel</span></div>
         <h3>The Science of Being Human</h3>
-        <div class="p-row"><span class="lbl">Was</span><p>YouTube-Bildungskanal mit animierten Erklärvideos zur Wissenschaft hinter menschlichem Verhalten: angewandte Psychologie und Neurobiologie in greifbaren visuellen Metaphern.</p></div>
-        <div class="p-row"><span class="lbl">Warum</span><p>Beleg einer zusätzlichen Fähigkeit: eigenständig produzieren und schneiden, harte Wissenschaft zugänglich erzählen, ohne sie zu verwässern. Rundet das Profil ab.</p></div>
-        <div class="p-row"><span class="lbl">Für wen</span><p>Für alle, die verstehen wollen, warum wir ticken, wie wir ticken · Englisch.</p></div>
-        <div class="p-links"><a href="https://www.youtube.com/@TheScienceofBeingHuman-44" target="_blank" rel="noopener" class="link-coral">Kanal ansehen <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="p-row"><span class="lbl"><span class="de">Was</span><span class="en">What</span></span><p class="de">YouTube-Bildungskanal mit animierten Erklärvideos zur Wissenschaft hinter menschlichem Verhalten: angewandte Psychologie und Neurobiologie in greifbaren visuellen Metaphern.</p><p class="en">An educational YouTube channel with animated explainers on the science behind human behavior: applied psychology and neurobiology in tangible visual metaphors.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Warum</span><span class="en">Why</span></span><p class="de">Beleg einer zusätzlichen Fähigkeit: eigenständig produzieren und schneiden, harte Wissenschaft zugänglich erzählen, ohne sie zu verwässern. Rundet das Profil ab.</p><p class="en">Proof of an additional skill: producing and editing on my own, telling hard science in an accessible way without watering it down. It rounds out the profile.</p></div>
+        <div class="p-row"><span class="lbl"><span class="de">Für wen</span><span class="en">Who for</span></span><p class="de">Für alle, die verstehen wollen, warum wir ticken, wie wir ticken · Englisch.</p><p class="en">For anyone curious about what makes us tick · English.</p></div>
+        <div class="p-links"><a href="https://www.youtube.com/@TheScienceofBeingHuman-44" target="_blank" rel="noopener" class="link-coral"><span class="de">Kanal ansehen</span><span class="en">View the channel</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
       <div class="media cz-sobh" tabindex="0" role="group" aria-roledescription="Bildkarussell" aria-label="The Science of Being Human, Video-Thumbnails">
         <div class="track">
@@ -423,13 +442,18 @@
   <div class="wrap">
     <div class="portrait reveal"><img src="assets/portrait.jpg" alt="Porträt von Tobias Schneider"></div>
     <div class="reveal">
-      <span class="eyebrow">Über mich</span>
-      <h2>Promovierter Biologe, der Lernwelten baut.</h2>
-      <p>Ich bin promovierter Molekularbiologe, aber meine Arbeit kreist heute stärker um ganze Ökosysteme als um einzelne Moleküle. An der Universität Bremen und am Leibniz-Zentrum für Marine Tropenforschung (ZMT) habe ich tropische Meeresökologie studiert, mit Schwerpunkt auf Korallenriffen. Was mich an der Biologie immer am meisten gepackt hat, ist nicht das Einzelteil, sondern das Zusammenspiel: wie aus Molekülen Zellen werden, aus Zellen Organismen, aus Organismen ganze Ökosysteme. Lebende Systeme, in denen ein Eingriff an einer Stelle überall nachhallt. Diese Faszination ist der rote Faden durch alles, was ich gestalte, vom Korallenriff bis zur Mondbasis.</p>
-      <p>Erklären gehört dazu, das mache ich klar und sauber. Aber wo es ums Abwägen geht, höre ich da nicht auf, sondern baue einen Ort zum Anwenden: ein Riff, dessen Schutz man unter einer Hitzewelle selbst steuert, eine Verhandlung, die man gegen einen widerstrebenden Experten führt. Man entscheidet, sieht die Folgen, und genau dieses Abwägen lässt sich nicht auswendig lernen.</p>
-      <p>Wenn du willst, dass Lernende ein Thema erleben statt es abzuarbeiten, dann lass uns reden.</p>
+      <span class="eyebrow de">Über mich</span>
+      <span class="eyebrow en">About me</span>
+      <h2 class="de">Promovierter Biologe, der Lernwelten baut.</h2>
+      <h2 class="en">A biologist (PhD) who builds learning worlds.</h2>
+      <p class="de">Ich bin promovierter Molekularbiologe, aber meine Arbeit kreist heute stärker um ganze Ökosysteme als um einzelne Moleküle. An der Universität Bremen und am Leibniz-Zentrum für Marine Tropenforschung (ZMT) habe ich tropische Meeresökologie studiert, mit Schwerpunkt auf Korallenriffen. Was mich an der Biologie immer am meisten gepackt hat, ist nicht das Einzelteil, sondern das Zusammenspiel: wie aus Molekülen Zellen werden, aus Zellen Organismen, aus Organismen ganze Ökosysteme. Lebende Systeme, in denen ein Eingriff an einer Stelle überall nachhallt. Diese Faszination ist der rote Faden durch alles, was ich gestalte, vom Korallenriff bis zur Mondbasis.</p>
+      <p class="en">I'm a molecular biologist by training (PhD), but my work today revolves more around whole ecosystems than around single molecules. At the University of Bremen and the Leibniz Centre for Tropical Marine Research (ZMT), I studied tropical marine ecology, with a focus on coral reefs. What has always gripped me most about biology isn't the single part, but the interplay: how molecules become cells, cells become organisms, organisms become whole ecosystems. Living systems, where an intervention in one place echoes everywhere. That fascination is the thread running through everything I design, from a coral reef to a moon base.</p>
+      <p class="de">Erklären gehört dazu, das mache ich klar und sauber. Aber wo es ums Abwägen geht, höre ich da nicht auf, sondern baue einen Ort zum Anwenden: ein Riff, dessen Schutz man unter einer Hitzewelle selbst steuert, eine Verhandlung, die man gegen einen widerstrebenden Experten führt. Man entscheidet, sieht die Folgen, und genau dieses Abwägen lässt sich nicht auswendig lernen.</p>
+      <p class="en">Explaining is part of it, and I do that clearly and cleanly. But where judgment is involved, I don't stop there; I build a place to apply it: a reef whose protection you steer yourself through a heat wave, a negotiation you carry out against a reluctant expert. You decide, you see the consequences, and that kind of judgment can't be memorized.</p>
+      <p class="de">Wenn du willst, dass Lernende ein Thema erleben statt es abzuarbeiten, dann lass uns reden.</p>
+      <p class="en">If you want learners to experience a topic rather than just work through it, let's talk.</p>
       <div class="contact-row">
-        <a href="mailto:tobi.schneider44@gmail.com" class="btn">Schreib mir
+        <a href="mailto:tobi.schneider44@gmail.com" class="btn"><span class="de">Schreib mir</span><span class="en">Get in touch</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/tobias-schneider-phd-a42b86184/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
@@ -440,7 +464,7 @@
 
 <footer>
   <div class="brand"><span class="dot"></span> Tobias Schneider</div>
-  Learning Experience Designer · promovierter Biologe<br>
+  <span class="de">Learning Experience Designer · promovierter Biologe</span><span class="en">Learning Experience Designer · Biologist (PhD)</span><br>
   <span style="opacity:.7">© 2026 Tobias Schneider</span>
 </footer>
 
@@ -452,9 +476,21 @@
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  document.querySelectorAll('.lang span').forEach(s=>s.addEventListener('click',()=>{
-    document.querySelectorAll('.lang span').forEach(x=>x.classList.remove('on'));s.classList.add('on');
-  }));
+  // Sprache umschalten (DE = Standard, #en = direkter englischer Einstieg)
+  (function(){
+    const btns=[...document.querySelectorAll('.lang button')];
+    function setLang(l){
+      document.documentElement.lang=l;
+      btns.forEach(b=>b.classList.toggle('on', b.dataset.l===l));
+    }
+    const start = (location.hash.toLowerCase()==='#en') ? 'en' : 'de';
+    setLang(start);
+    btns.forEach(b=>b.addEventListener('click',()=>{
+      const l=b.dataset.l;
+      setLang(l);
+      history.replaceState(null,'', l==='en' ? '#en' : location.pathname+location.search);
+    }));
+  })();
 
   // Bildkarussells
   document.querySelectorAll('.media .track').forEach(track=>{
